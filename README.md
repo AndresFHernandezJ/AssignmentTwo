@@ -1,2 +1,2 @@
 # AssignmentTwo
-Electiva Electrónica Assignment 2 prueba
+Electiva Electrónica Assignment 2 

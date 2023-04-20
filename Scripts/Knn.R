@@ -2,6 +2,9 @@ library(tidyverse)
 library(caret)
 library(gmodels)
 
+Dataset2_df <- Dataset2
+Dataset2_df$DISTANCIA <- as.factor(Dataset2_df$DISTANCIA)
+
 Dataset2 <- read.csv("D:/Usr/Desktop/Andres/8vo Semestre/DataScience/AssignmentTwo/Datasets/ADQUISION_DATOS_PLANA_CONCAVA_CONVEXA_2.csv")
 
 Dataset2$PARED <- as.factor(Dataset2$PARED)
@@ -47,4 +50,6 @@ CrossTable(test.dataW$PARED, knnPredict, prop.chisq = FALSE)
 
 
 saveRDS(knnFit, "knn_model.rds")
+saveRDS(test.dataW, "test_data")
+saveRDS(knnPredict, "knn_predict")
 

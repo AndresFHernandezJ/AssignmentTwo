@@ -4,7 +4,7 @@ InfraredM <- readRDS("InfraredM.rds")
 MultilinearModel <- readRDS("MultilinearModel.rds")
 
 # Load New Data
-nuevos_datos1 <- read.csv("D:/Usr/Desktop/Andres/8vo Semestre/DataScience/AssignmentTwo/Datasets/XXXX.csv")
+nuevos_datos1 <- read.csv("D:/Usr/Desktop/Andres/8vo Semestre/DataScience/AssignmentTwo/Datasets/Adquisicionprueba.csv")
 
 # Predict
 prediccionesU <- predict(UltrasonicM, nuevos_datos1)

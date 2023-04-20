@@ -71,5 +71,12 @@ saveRDS(UltrasonicM, "UltrasonicM.rds")
 saveRDS(InfraredM, "InfraredM.rds")
 saveRDS(MultilinearModel, "MultilinearModel.rds")
 
+#Guardar dataframes RMSEx.df
+# guardar el objeto RMSEU.df
+saveRDS(RMSEU.df, "RMSEU.df.rds")
+saveRDS(RMSEI.df, "RMSEI.df.rds")
+saveRDS(RMSEM.df, "RMSEM.df.rds")
+
+
 
 

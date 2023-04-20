@@ -20,5 +20,3 @@ abline(UltrasonicM)
 
 plot(Dataset1$OPTICO.INFRARROJO, Dataset1$DISTANCIA)
 abline(InfraredM)
-
-

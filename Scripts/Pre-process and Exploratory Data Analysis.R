@@ -56,21 +56,3 @@ InfraredCorr <- cor.test(Dataset1$OPTICO.INFRARROJO, Dataset1$DISTANCIA, method 
 
 print(UltrasonicCorr)
 print(InfraredCorr)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

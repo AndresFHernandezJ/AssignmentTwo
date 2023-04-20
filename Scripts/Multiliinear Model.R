@@ -12,4 +12,3 @@ summary(MultilinearModel)
 
 #Coefficients
 MultilinearModel$coefficients #-9.13+0.017X+0.0015X
-

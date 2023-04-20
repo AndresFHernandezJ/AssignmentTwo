@@ -10,21 +10,66 @@ sample.index <- sample(1:nrow(Dataset1)
 train.data <- Dataset1[sample.index,,drop=F]
 test.data <- Dataset1[-sample.index,,drop=F]
 
-UltrasonicM2 <- lm(DISTANCIA ~ ULTRASONICO, data = train.data)
-InfraredM2 <- lm(DISTANCIA ~ OPTICO.INFRARROJO, data = train.data)
-MultilinearModel2 <- lm(DISTANCIA ~ ., data = train.data)
-MultilinearModel2
+########## MODELS #####################
 
-summary(MultilinearModel2)
-
+####### ULTRASONIC MODEL #######################
+UltrasonicM <- lm(DISTANCIA ~ ULTRASONICO, data = train.data)
+UltrasonicM
+summary(UltrasonicM)
 #Predictions
-predictions <- predict(MultilinearModel2, test.data)
-predictions
-
+#ULTRASONIC
+predictionsU <- predict(UltrasonicM, test.data)
+predictionsU
 #Error
-RMSE.df <- data.frame(predicted = predictions,
-                      actual = test.data$DISTANCIA
-                      , SE = (predictions - test.data$DISTANCIA))
-
+RMSEU.df <- data.frame(predicted = predictionsU,
+                       actual = test.data$DISTANCIA
+                       , SE = (predictionsU - test.data$DISTANCIA))
 #promedio de error
-sum(RMSE.df$SE)/nrow(RMSE.df)
+sum(RMSEU.df$SE)/nrow(RMSEU.df)
+view(RMSEU.df)
+
+####### INFRARED MODEL #####################
+InfraredM <- lm(DISTANCIA ~ OPTICO.INFRARROJO, data = train.data)
+InfraredM
+summary(InfraredM)
+#Predictions
+#ULTRASONIC
+predictionsI <- predict(InfraredM, test.data)
+predictionsI
+#Error
+RMSEI.df <- data.frame(predicted = predictionsI,
+                       actual = test.data$DISTANCIA
+                       , SE = (predictionsI - test.data$DISTANCIA))
+#promedio de error
+sum(RMSEI.df$SE)/nrow(RMSEI.df)
+view(RMSEI.df)
+
+####### MULTILINEAR MODEL #####################
+MultilinearModel <- lm(DISTANCIA ~ ., data = train.data)
+MultilinearModel
+summary(MultilinearModel)
+#Predictions
+#ULTRASONIC
+predictionsM <- predict(MultilinearModel, test.data)
+predictionsM
+#Error
+RMSEM.df <- data.frame(predicted = predictionsM,
+                       actual = test.data$DISTANCIA
+                       , SE = (predictionsM - test.data$DISTANCIA))
+#promedio de error
+sum(RMSEM.df$SE)/nrow(RMSEM.df)
+view(RMSEM.df)
+
+
+
+sum(RMSEU.df$SE)/nrow(RMSEU.df)
+sum(RMSEI.df$SE)/nrow(RMSEI.df)
+sum(RMSEM.df$SE)/nrow(RMSEM.df)
+
+# Guardar modelos
+saveRDS(UltrasonicM, "UltrasonicM.rds")
+saveRDS(InfraredM, "InfraredM.rds")
+saveRDS(MultilinearModel, "MultilinearModel.rds")
+
+
+
